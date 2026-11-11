@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación en AR</title>
+
+  <script type="module"
+    src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #1b1b3a; color: #fff; text-align: center; }
+    h1 { margin: 16px 8px 4px; color: #ffd166; }
+    p { margin: 4px 8px; }
+    model-viewer { width: 100%; height: 65vh; --poster-color: transparent; }
+    #boton-ar {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: #06d6a0; color: #000; border: 0; border-radius: 24px;
+      padding: 12px 22px; font-size: 16px; font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- CAMBIA ESTOS TEXTOS -->
+  <h1>¡Estás invitado!</h1>
+  <p>Cumpleaños de Ana</p>
+  <p>Sábado 20 de diciembre, 18:00 h · Calle Ejemplo 123</p>
+
+  <!-- tarjeta.glb = tu ilustración con movimiento (se crea con hacer_tarjeta.py) -->
+  <model-viewer
+    src="./tarjeta.glb"
+    alt="Tarjeta de invitación en 3D"
+    ar
+    ar-modes="webxr scene-viewer"
+    ar-placement="floor"
+    autoplay
+    camera-controls
+    shadow-intensity="1">
+    <button slot="ar-button" id="boton-ar">Ver en mi espacio (AR)</button>
+  </model-viewer>
+</body>
+</html>
